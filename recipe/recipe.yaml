@@ -17,10 +17,6 @@ build:
   script:
     - if: unix
       then:
-        - if: osx and arm64
-          then:
-            - export GOOS=darwin
-            - export GOARCH=arm64
         - export LDFLAGS="${LDFLAGS} -s -w -extldflags -static"
         - export LDFLAGS="${LDFLAGS} -X main.Version=${PKG_VERSION}"
         - go build -ldflags "${LDFLAGS}" -o "$PREFIX/bin/scw" cmd/scw/main.go
