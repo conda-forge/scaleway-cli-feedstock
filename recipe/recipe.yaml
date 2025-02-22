@@ -17,7 +17,7 @@ build:
   script:
     - if: unix
       then:
-        - if: osx and arm64:
+        - if: osx and arm64
           then:
             - export GOOS=darwin
             - export GOARCH=arm64
