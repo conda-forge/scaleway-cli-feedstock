@@ -194,6 +194,3 @@ Feedstock Maintainers
 
 * [@hadim](https://github.com/hadim/)
 
-
-<!-- dummy commit to enable rerendering -->
-
