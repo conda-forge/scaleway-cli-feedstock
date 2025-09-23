@@ -20,7 +20,7 @@ build:
         - export LDFLAGS="${LDFLAGS} -s -w -extldflags -static"
         - export LDFLAGS="${LDFLAGS} -X main.Version=${PKG_VERSION}"
         - go build -ldflags "${LDFLAGS}" -o "$PREFIX/bin/scw" cmd/scw/main.go
-        - go-licenses save ./... --save_path="./license-files/" || true
+        - go-licenses save ./... --save_path="$SRC_DIR/license-files/" || true
     - if: win
       then:
         - set "LDFLAGS=%LDFLAGS% -s -w -extldflags -static"
