@@ -1,6 +1,6 @@
 context:
   name: scaleway-cli
-  version: "2.51.0"
+  version: "2.52.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/scaleway/scaleway-cli/archive/refs/tags/v${{ version }}.zip
-  sha256: 9bda93dff305a5e036145dbc7a17f0c376c5b4c42dd242b5742787af8259e697
+  sha256: 93f6f7294eb0b415f7334cb028481a00cdf42032778a64c8c953ba0832408a3d
 
 build:
   number: 0
