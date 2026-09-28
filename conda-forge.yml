@@ -7,9 +7,10 @@ conda_build:
 conda_forge_output_validation: true
 conda_install_tool: pixi
 build_platform:
-  osx_arm64: osx_64
-  linux_aarch64: linux_64
   linux_ppc64le: linux_64
 test: native
 bot:
   automerge: true
+provider:
+  linux_aarch64: default
+  osx_arm64: default
