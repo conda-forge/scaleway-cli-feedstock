@@ -1,0 +1,44 @@
+diff --git a/core/testing.go b/core/testing.go
+index 01e88efb0b..2ea1ad62ed 100644
+--- a/core/testing.go
++++ b/core/testing.go
+@@ -309,21 +309,6 @@ func createTestClient(
+ // because they will be executed without waiting.
+ var DefaultRetryInterval *time.Duration
+ 
+-var moduleRoot string
+-
+-func init() {
+-	current, _ := os.Getwd()
+-	for current != "/" {
+-		if _, err := os.Stat(filepath.Join(current, "go.mod")); err == nil {
+-			moduleRoot = current
+-
+-			return
+-		}
+-		current = filepath.Dir(current)
+-	}
+-	panic("can't find the module root")
+-}
+-
+ var foldersUsingVCRv4 = []string{
+ 	"cmd/scw",
+ 	"core",
+@@ -344,6 +329,17 @@ var foldersUsingVCRv4 = []string{
+ }
+ 
+ func folderUsesVCRv4(path string) bool {
++	var moduleRoot string
++	current, _ := os.Getwd()
++	for current != "/" {
++		if _, err := os.Stat(filepath.Join(current, "go.mod")); err == nil {
++			moduleRoot = current
++
++			break
++		}
++		current = filepath.Dir(current)
++	}
++
+ 	pkg, err := filepath.Rel(moduleRoot, path)
+ 	if err != nil {
+ 		panic(err)

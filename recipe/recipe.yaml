@@ -9,6 +9,10 @@ package:
 source:
   url: https://github.com/scaleway/scaleway-cli/archive/refs/tags/v${{ version }}.zip
   sha256: 86e95c1d37b85c280a15028fbcb393d8ae1d0cc7963469b503f7fcf36295620a
+  patches:
+    # Upstream fix for a panic at startup outside a Go module (scaleway/scaleway-cli#6379).
+    # Drop on the next release.
+    - 0001-fix-module-root-panic.patch
 
 build:
   number: 0
